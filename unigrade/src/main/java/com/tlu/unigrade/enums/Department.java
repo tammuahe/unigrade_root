@@ -37,7 +37,7 @@ public enum Department {
     NURSING("Điều dưỡng"),
 
     // Nghệ thuật
-    VOCAL_MUSIC("Thanh nhạc");
+    MUSIC("Thanh nhạc");
 
     private final String displayName;
 
