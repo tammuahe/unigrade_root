@@ -1,8 +1,14 @@
 package com.tlu.unigrade.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tlu.unigrade.dto.program.ProgramDTO;
 import com.tlu.unigrade.entity.Program;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public final class ProgramMapper {
 
     public ProgramDTO toDto(Program entity) {

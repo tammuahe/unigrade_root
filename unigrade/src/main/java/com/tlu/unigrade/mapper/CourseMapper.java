@@ -1,8 +1,14 @@
 package com.tlu.unigrade.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tlu.unigrade.dto.course.CourseDTO;
 import com.tlu.unigrade.entity.Course;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class CourseMapper {
 
     public CourseDTO toDto(Course course) {

@@ -1,11 +1,17 @@
 package com.tlu.unigrade.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tlu.unigrade.dto.grade.GradeDTO;
 import com.tlu.unigrade.entity.Grade;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class GradeMapper {
 
-    public static GradeDTO toDto(Grade grade) {
+    public GradeDTO toDto(Grade grade) {
         if (grade == null) return null;
 
         GradeDTO dto = new GradeDTO();
@@ -16,7 +22,7 @@ public class GradeMapper {
         return dto;
     }
 
-    public static Grade toEntity(GradeDTO dto) {
+    public Grade toEntity(GradeDTO dto) {
         if (dto == null) return null;
 
         Grade grade = new Grade();

@@ -1,11 +1,17 @@
 package com.tlu.unigrade.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tlu.unigrade.dto.student.StudentDTO;
 import com.tlu.unigrade.entity.Student;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public final class StudentMapper {
 
-    private ProgramMapper programMapper;
+    private final ProgramMapper  programMapper;
 
     public StudentDTO toDto(Student entity) {
         if (entity == null)

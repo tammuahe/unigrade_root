@@ -1,11 +1,17 @@
 package com.tlu.unigrade.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tlu.unigrade.dto.lecturer.LecturerDTO;
 import com.tlu.unigrade.entity.Lecturer;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Component
 public class LecturerMapper {
 
-    public static LecturerDTO toDto(Lecturer lecturer) {
+    public LecturerDTO toDto(Lecturer lecturer) {
         if (lecturer == null) return null;
 
         LecturerDTO dto = new LecturerDTO();
@@ -15,7 +21,7 @@ public class LecturerMapper {
         return dto;
     }
 
-    public static Lecturer toEntity(LecturerDTO dto) {
+    public Lecturer toEntity(LecturerDTO dto) {
         if (dto == null) return null;
 
         Lecturer lecturer = new Lecturer();

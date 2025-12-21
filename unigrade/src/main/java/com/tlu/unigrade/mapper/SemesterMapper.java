@@ -1,11 +1,17 @@
 package com.tlu.unigrade.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tlu.unigrade.dto.semester.SemesterDTO;
 import com.tlu.unigrade.entity.Semester;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class SemesterMapper {
 
-    public static SemesterDTO toDto(Semester semester) {
+    public SemesterDTO toDto(Semester semester) {
         if (semester == null) return null;
 
         SemesterDTO dto = new SemesterDTO();
@@ -15,7 +21,7 @@ public class SemesterMapper {
         return dto;
     }
 
-    public static Semester toEntity(SemesterDTO dto) {
+    public Semester toEntity(SemesterDTO dto) {
         if (dto == null) return null;
 
         Semester semester = new Semester();
