@@ -1,6 +1,6 @@
 package com.tlu.unigrade.entity;
 
-import com.tlu.unigrade.enums.SemesterNumber;
+import com.tlu.unigrade.enums.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,22 +14,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "semesters")
-@NoArgsConstructor
-@Setter
 @Getter
-public class Semester {
-
-    @Id
+@Setter
+@NoArgsConstructor
+@Table(name = "users")
+public class User {
+    @Id 
     @GeneratedValue
-    @Column(name = "semester_id")
-    private long id;
+    @Column(name = "user_id")
+    private Long id;
 
-    @Column(name = "year")
-    private int year;
+    private String username;
+    private String password;
 
-    @Column(name = "semester_number")
     @Enumerated(EnumType.STRING)
-    private SemesterNumber semesterNumber;
+    private Role role;
+
+    @Column(name = "student_id")
+    private Long studentId;
 
 }

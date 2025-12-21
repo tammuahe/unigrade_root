@@ -2,7 +2,6 @@ package com.tlu.unigrade.entity;
 
 import java.time.LocalDate;
 
-import com.tlu.unigrade.enums.Department;
 import com.tlu.unigrade.enums.StudentStatus;
 
 import jakarta.persistence.Column;
@@ -11,11 +10,18 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "students")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Student {
     @Id
     @GeneratedValue
@@ -33,8 +39,9 @@ public class Student {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Enumerated(EnumType.STRING)
-    private Department department;
+    @ManyToOne
+    @JoinColumn(name = "program_id")
+    private Program program;
 
     @Enumerated(EnumType.STRING)
     private StudentStatus status;
