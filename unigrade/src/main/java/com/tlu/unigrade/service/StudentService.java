@@ -1,5 +1,6 @@
 package com.tlu.unigrade.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.tlu.unigrade.dto.course.CourseDTO;
@@ -16,4 +17,7 @@ public interface StudentService {
 
     StudentDTO getStudent();
 
+    BigDecimal getCPA();
+
+    BigDecimal getCompletionPercentage();
 }

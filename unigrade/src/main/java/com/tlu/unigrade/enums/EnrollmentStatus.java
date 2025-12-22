@@ -4,5 +4,9 @@ public enum EnrollmentStatus {
     IN_PROGRESS,
     COMPLETED,
     RETAKE_REQUIRED,
-    CANCELLED
+    CANCELLED;
+
+    public boolean isCompleted() {
+        return this == COMPLETED;
+    }
 }

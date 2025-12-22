@@ -10,6 +10,7 @@ import com.tlu.unigrade.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,11 @@ public class StudentController {
     public ResponseEntity<StudentDTO> getStudent() {
         return ResponseEntity.ok(studentService.getStudent());
     }
-    
+
+    @GetMapping("/cpa")
+    public BigDecimal getCpa() {
+        return studentService.getCPA();
+    }
 
     @GetMapping("/enrollment")
     public ResponseEntity<List<EnrollmentDTO>> getEnrollments(@RequestParam(required = false) String keyword) {
@@ -48,6 +53,9 @@ public class StudentController {
         return ResponseEntity.ok(studentService.findAllRequiredCourses());
     }
 
-
+    @GetMapping("/completion")
+    public BigDecimal getCompletion() {
+        return studentService.getCompletionPercentage();
+    }
 
 }
