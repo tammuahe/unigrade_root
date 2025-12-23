@@ -20,4 +20,5 @@ public interface StudentService {
     BigDecimal getCPA();
 
     BigDecimal getCompletionPercentage();
+
 }

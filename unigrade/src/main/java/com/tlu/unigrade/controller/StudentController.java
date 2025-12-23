@@ -3,9 +3,11 @@ package com.tlu.unigrade.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tlu.unigrade.dto.chat.ChatDTO;
 import com.tlu.unigrade.dto.course.CourseDTO;
 import com.tlu.unigrade.dto.enrollment.EnrollmentDTO;
 import com.tlu.unigrade.dto.student.StudentDTO;
+import com.tlu.unigrade.service.ChatService;
 import com.tlu.unigrade.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,8 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/student")
@@ -23,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class StudentController {
 
     private final StudentService studentService;
+    private final ChatService chatService;
 
     @GetMapping("/test")
     public String test() {
@@ -56,6 +61,11 @@ public class StudentController {
     @GetMapping("/completion")
     public BigDecimal getCompletion() {
         return studentService.getCompletionPercentage();
+    }
+
+    @PostMapping("/chat")
+    public ResponseEntity<ChatDTO> chat(@RequestBody String message) {
+        return ResponseEntity.ok(chatService.chat(message));
     }
 
 }
