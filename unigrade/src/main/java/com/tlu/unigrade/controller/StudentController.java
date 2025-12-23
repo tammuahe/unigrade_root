@@ -10,6 +10,8 @@ import com.tlu.unigrade.dto.student.StudentDTO;
 import com.tlu.unigrade.service.ChatService;
 import com.tlu.unigrade.service.StudentService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
@@ -66,6 +68,14 @@ public class StudentController {
     @PostMapping("/chat")
     public ResponseEntity<ChatDTO> chat(@RequestBody String message) {
         return ResponseEntity.ok(chatService.chat(message));
+    }
+
+    @PostMapping("/logout")
+    public void logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
     }
 
 }

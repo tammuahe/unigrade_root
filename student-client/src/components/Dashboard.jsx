@@ -21,8 +21,22 @@ export default function Dashboard({ onLogout }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Nav and tab buttons here (same as before) */}
+      {/* Navbar */}
+      <nav className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <h1 className="text-2xl font-bold text-indigo-600">Unigrade</h1>
+            <button
+              onClick={onLogout}
+              className="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition"
+            >
+              Đăng xuất
+            </button>
+          </div>
+        </div>
+      </nav>
 
+      {/* Tabs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex space-x-1 bg-white p-1 rounded-lg shadow mb-6">
           {tabs.map((tab) => (
@@ -41,7 +55,8 @@ export default function Dashboard({ onLogout }) {
           ))}
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6">
+        {/* Content */}
+        <div className="bg-white rounded-lg shadow p-6 min-h-[500px]">
           {activeTab === 'profile' && <StudentProfile />}
           {activeTab === 'enrollments' && <EnrollmentList />}
           {activeTab === 'courses' && <CourseList />}

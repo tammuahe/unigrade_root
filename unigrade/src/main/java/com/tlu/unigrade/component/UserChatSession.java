@@ -75,7 +75,7 @@ public class UserChatSession {
         chat = client.chats.create("gemini-2.5-flash");
         String enrollmentContext = enrollmentDtoListToString(studentService.findAllEnrollments());
         String studentContext = studentDtoToString(studentService.getStudent());
-        sb.append("Bạn là một trợ lý trả lời các câu hỏi về điểm của sinh viên. Thông tin sinh viên: \n");
+        sb.append("Bạn là một trợ lý trả lời các câu hỏi về điểm của sinh viên. Bạn đang trò chuyenj với một sinh viên có thông tin như sau: \n");
         sb.append(studentContext);
         sb.append("\n Thông tin về điểm của sinh viên:\n");
         sb.append(enrollmentContext);

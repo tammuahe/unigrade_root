@@ -33,6 +33,17 @@ export const api = {
     return response.json();
   },
 
+  logout: async () => {
+    const response = await fetch(`${API_BASE_URL}/student/logout`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        ...getAuthHeader(),
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) throw new Error("Failed to fetch completion");
+  },
   getCompletion: async () => {
     const response = await fetch(`${API_BASE_URL}/student/completion`, {
       method: "GET",

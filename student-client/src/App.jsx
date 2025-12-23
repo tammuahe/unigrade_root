@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import { api } from '../services/api';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,6 +18,7 @@ export default function App() {
   };
 
   const handleLogout = () => {
+    api.logout();
     localStorage.removeItem('credentials');
     localStorage.removeItem('username');
     setIsAuthenticated(false);
