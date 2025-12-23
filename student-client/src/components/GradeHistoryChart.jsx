@@ -23,7 +23,7 @@ function GradeHistoryChart({ data }) {
           <Tooltip />
           <Line
             type="monotone"
-            dataKey="grade"
+            dataKey="cpa"
             stroke="#6366f1"
             strokeWidth={3}
             dot={{ r: 4 }}

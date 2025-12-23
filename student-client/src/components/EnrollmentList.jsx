@@ -42,6 +42,12 @@ export default function EnrollmentList() {
 
   const semesterMap = {};
 
+  const semesterOrder = {
+  SEMESTER_1: 1,
+  SEMESTER_2: 2,
+  SEMESTER_3: 3,
+};
+
   enrollments.forEach((e) => {
     if (!e.grade?.finalGrade || !e.course?.credit || !e.semester) return;
 
@@ -49,7 +55,7 @@ export default function EnrollmentList() {
 
     if (!semesterMap[key]) {
       semesterMap[key] = {
-        semester: `${e.semester.semesterNumber.replace("_", " ")} ${
+        semester: `${e.semester.semesterNumber} ${
           e.semester.year
         }`,
         totalScore: 0,
