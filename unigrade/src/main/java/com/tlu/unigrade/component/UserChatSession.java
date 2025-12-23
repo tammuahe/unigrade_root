@@ -11,8 +11,6 @@ import com.google.genai.Client;
 import com.tlu.unigrade.dto.enrollment.EnrollmentDTO;
 import com.tlu.unigrade.dto.student.StudentDTO;
 import com.tlu.unigrade.service.StudentService;
-
-import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -71,7 +69,8 @@ public class UserChatSession {
     }
 
     public void init() {
-        if (chat != null) return;
+        if (chat != null)
+            return;
         StringBuilder sb = new StringBuilder();
         chat = client.chats.create("gemini-2.5-flash");
         String enrollmentContext = enrollmentDtoListToString(studentService.findAllEnrollments());
